@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vue-slider</title>
+    <!-- link css -->
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -16,6 +17,8 @@
     <div id="app">
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
+                <!-- V-For viene utilizzato per iterare sulle slides-->
+                <!-- V-show viene utilizzato per controllare la visibilità delle slides in base all'indice corrente -->
                 <div v-for="(slide, index) in slides" :key="index" class="item" v-show="currentIndex === index">
                     <img :src="slide.image" :alt="slide.alt" />
                     <div class="text">
@@ -24,6 +27,7 @@
                     </div>
                 </div>
                 <!-- creazione thumbs -->
+                <!-- @Click viene utilizzato per associare gli eventi click che gestiscono la navigazione delle slides -->
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
