@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue-slider</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <!-- script vue.js -->
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+
+    <div id="app">
+        <div class="container">
+            <div class="slider-wrapper" tabindex="0">
+                <div v-for="(slide, index) in slides" :key="index" class="item" v-show="currentIndex === index">
+                    <img :src="slide.image" :alt="slide.alt" />
+                    <div class="text">
+                        <h3>{{ slide.title }}</h3>
+                        <p>{{ slide.description }}</p>
+                    </div>
+                </div>
+                <!-- creazione thumbs -->
+                <div class="thumbs">
+                    <div class="prev" @click="prevSlide"></div>
+                    <div class="next" @click="nextSlide"></div>
+                <!-- azione al click -->
+                    <div v-for="(thumb, index) in slides" :key="index" class="thumb" :class="{ active: currentIndex === index }" @click="changeSlide(index)">
+                        <img :src="thumb.image" :alt="thumb.alt" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
