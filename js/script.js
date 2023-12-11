@@ -53,6 +53,7 @@ const app = Vue.createApp({
             this.currentIndex = index;
         },
         // funzione per cambiare slide ogni 3 secondi
+        // StartaOutoplay e StopAutoplay per gestire l'avvio e l'arresto di Autoplay.
         startAutoplay() {
             this.autoplayInterval = setInterval(() => {
                 this.nextSlide();
